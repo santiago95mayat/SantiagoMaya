@@ -175,14 +175,14 @@ const Hero = ({ language, onWorkClick, theme }) => { // Recibe theme como prop
           : 'bg-white text-black' // Fondo blanco en modo claro
       }`}
     >
-      <div className="text-center px-4 max-w-2xl">
+      <div className="text-center px-6 max-w-3xl">
         <p className={`${theme === 'dark' ? 'text-yellow-200' : 'text-gray-600'} text-lg mb-2 italic`}>
           {t.heroGreeting}
         </p>
-        <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+        <h1 className={`text-5xl md:text-6xl font-extrabold mb-6 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
           {t.heroName}
         </h1>
-        <p className={`text-base md:text-lg mb-6 min-h-[120px] ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+        <p className={`text-lg md:text-xl mb-8 min-h-[120px] ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
           {typedText}
           <span className="animate-pulse">|</span>
         </p>
@@ -201,7 +201,7 @@ const Hero = ({ language, onWorkClick, theme }) => { // Recibe theme como prop
             {language === 'es' ? 'Ver mi trabajo' : 'See my work'}
           </motion.button>
         </div>
-        <p className={`text-sm mt-6 ${theme === 'dark' ? 'opacity-80' : 'text-gray-500'}`}>{t.heroScroll}</p>
+        <p className={`text-sm mt-8 ${theme === 'dark' ? 'opacity-80' : 'text-gray-500'}`}>{t.heroScroll}</p>
       </div>
     </motion.section>
   );
@@ -212,14 +212,14 @@ const WorksGallery = ({ language, theme = 'dark' }) => { // Recibe theme como pr
   const t = translations[language];
 
   return (
-    <section className={`py-12 px-4 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
+    <section className={`py-16 px-6 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <div className="container mx-auto">
-        <h2 className={`text-3xl font-bold mb-6 text-center ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+        <h2 className={`text-4xl font-bold mb-8 text-center ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
           {language === "es" ? "Proyectos" : "Works"}
         </h2>
 
         {/* GRID DE VIDEOS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {projectsVideo.map((proj) => (
             <motion.div
               key={proj.id}
@@ -231,13 +231,13 @@ const WorksGallery = ({ language, theme = 'dark' }) => { // Recibe theme como pr
               <img
                 src={proj.thumbnail}
                 alt={proj.title}
-                className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 onError={(e) => {
                   e.target.src = `https://placehold.co/480x270?text=${encodeURIComponent(proj.title)}`;
                 }}
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white font-semibold text-sm px-2 py-1 bg-yellow-400/80 rounded">
+                <span className="text-white font-semibold text-lg px-4 py-2 bg-yellow-400/80 rounded">
                   {proj.title}
                 </span>
               </div>
@@ -324,7 +324,7 @@ const AboutSection = ({ language, theme = 'dark' }) => { // Recibe theme como pr
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -80 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className={`py-12 px-4 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`} // Fondo cambia con el tema
+      className={`py-16 px-6 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`} // Fondo cambia con el tema
     >
       <div className="container mx-auto">
         <motion.h2
@@ -332,25 +332,25 @@ const AboutSection = ({ language, theme = 'dark' }) => { // Recibe theme como pr
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`text-3xl font-bold mb-6 text-center italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+          className={`text-4xl font-bold mb-8 text-center italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}
         >
           <span className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.aboutTitle}</span><br />
           <span className="text-yellow-400">{t.aboutMe}</span>
         </motion.h2>
         
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className={`p-6 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} mb-6 shadow-lg ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
+            className={`p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} mb-8 shadow-lg ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
           >
-            <h3 className={`text-xl font-bold mb-3 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.myStory}</h3>
-            <p className={`mb-3 italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+            <h3 className={`text-2xl font-bold mb-4 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.myStory}</h3>
+            <p className={`mb-4 italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
               {t.story1}
             </p>
-            <p className={`mb-3 italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`mb-4 italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
               {t.story2}
             </p>
             <p className={`italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -458,7 +458,7 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -80 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className={`py-12 px-4 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`} // Fondo cambia con el tema
+      className={`py-16 px-6 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'}`} // Fondo cambia con el tema
     >
       <div className="container mx-auto">
         <motion.h2
@@ -466,25 +466,25 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className={`text-3xl font-bold mb-6 text-center italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+          className={`text-4xl font-bold mb-8 text-center italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}
         >
           <span className={`${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactReady}</span><br />
           <span className="text-yellow-400">{t.contactStart}</span>
         </motion.h2>
         
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className={`p-6 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} shadow-lg ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
+            className={`p-8 rounded-2xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} shadow-lg ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
           >
-            <h3 className={`text-xl font-semibold mb-4 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactFormTitle}</h3>
+            <h3 className={`text-2xl font-semibold mb-6 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactFormTitle}</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className={`block text-sm font-medium mb-2 italic ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                     {t.contactName}
@@ -497,7 +497,7 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
                     onChange={handleInputChange}
                     placeholder={t.contactNamePlaceholder}
                     required
-                    className={`w-full px-3 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none italic ${errors.name ? 'border-red-500' : ''}`}
+                    className={`w-full px-4 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none italic ${errors.name ? 'border-red-500' : ''}`}
                   />
                   {errors.name && <p className="mt-1 text-red-500 text-sm italic">{errors.name}</p>}
                 </div>
@@ -513,7 +513,7 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
                     onChange={handleInputChange}
                     placeholder={t.contactEmailPlaceholder}
                     required
-                    className={`w-full px-3 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none italic ${errors.email ? 'border-red-500' : ''}`}
+                    className={`w-full px-4 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none italic ${errors.email ? 'border-red-500' : ''}`}
                   />
                   {errors.email && <p className="mt-1 text-red-500 text-sm italic">{errors.email}</p>}
                 </div>
@@ -529,9 +529,9 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder={t.contactMessagePlaceholder}
-                  rows={4}
+                  rows={6}
                   required
-                  className={`w-full px-3 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none resize-none italic ${errors.message ? 'border-red-500' : ''}`}
+                  className={`w-full px-4 py-2 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-white' : 'bg-black/5 border-black/10 text-black'} rounded-md focus:border-yellow-400 focus:outline-none resize-none italic ${errors.message ? 'border-red-500' : ''}`}
                 />
                 {errors.message && <p className="mt-1 text-red-500 text-sm italic">{errors.message}</p>}
               </div>
@@ -541,7 +541,7 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
                 whileTap={{ scale: 0.98 }}
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 text-white font-bold hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
+                className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 text-white font-bold hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -564,20 +564,20 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
           </motion.div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className={`text-xl font-semibold mb-4 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactInfo}</h3>
+              <h3 className={`text-2xl font-semibold mb-6 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactInfo}</h3>
               
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {contactInfo.map((item, index) => (
                   <div 
                     key={index} 
-                    className={`p-3 rounded-xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} flex items-center gap-3 ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
+                    className={`p-4 rounded-xl border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} flex items-center gap-4 ${theme === 'dark' ? 'bg-black/50' : 'bg-white/50'}`}
                   >
                     <div className="text-yellow-400">
                       {item.icon}
@@ -603,15 +603,15 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h4 className={`text-lg font-semibold mb-3 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactSocial}</h4>
-              <div className="flex gap-3">
+              <h4 className={`text-lg font-semibold mb-4 italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>{t.contactSocial}</h4>
+              <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center justify-center w-10 h-10 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-600'} hover:text-yellow-400 hover:border-yellow-400 rounded-lg transition-all duration-300`}
+                    className={`flex items-center justify-center w-12 h-12 ${theme === 'dark' ? 'bg-white/5 border-white/10 text-gray-300' : 'bg-black/5 border-black/10 text-gray-600'} hover:text-yellow-400 hover:border-yellow-400 rounded-lg transition-all duration-300`}
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -682,12 +682,12 @@ export default function App() {
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} transition-colors duration-300`}>
       {/* Barra de navegación fija */}
-      <header className={`fixed top-0 left-0 right-0 z-50 ${theme === 'dark' ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-xl border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-4 py-3 transition-colors duration-300`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 ${theme === 'dark' ? 'bg-black/80' : 'bg-white/80'} backdrop-blur-xl border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-6 py-4 transition-colors duration-300`}>
         <div className="container mx-auto flex justify-between items-center">
-          <div className={`${theme === 'dark' ? 'text-yellow-400' : 'text-black'} font-bold text-lg italic`}>Santiago Maya Tobar</div>
+          <div className={`${theme === 'dark' ? 'text-yellow-400' : 'text-black'} font-bold text-xl italic`}>Santiago Maya Tobar</div>
           
           {/* Menú desktop */}
-          <nav className="hidden md:flex items-center space-x-4">
+          <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection(0)} 
               className={`font-medium ${active === 0 ? (theme === 'dark' ? 'text-yellow-400' : 'text-black') : (theme === 'dark' ? 'text-gray-300 hover:text-white' : 'text-black/70 hover:text-black')} transition-colors`}
@@ -713,20 +713,20 @@ export default function App() {
               {language === 'es' ? 'Contacto' : 'Contact'}
             </button>
             
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-4">
               {/* Toggle de tema */}
               <button 
                 onClick={toggleTheme}
                 className={`p-2 rounded-full ${theme === 'dark' ? 'bg-gray-800 text-yellow-400' : 'bg-black text-yellow-400'} transition-colors duration-300`}
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </button>
               
               {/* Botón idioma */}
               <button
                 onClick={() => setLanguage(language === "es" ? "en" : "es")}
-                className={`px-2 py-1 rounded-lg font-bold ${theme === 'dark' ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400'} hover:opacity-90 text-sm`}
+                className={`px-3 py-2 rounded-lg font-bold ${theme === 'dark' ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400'} hover:opacity-90`}
                 aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
               >
                 {language === "es" ? "EN" : "ES"}
@@ -735,20 +735,20 @@ export default function App() {
           </nav>
 
           {/* Menú mobile */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-4">
             {/* Toggle de tema */}
             <button 
               onClick={toggleTheme}
               className={`p-2 rounded-full ${theme === 'dark' ? 'bg-gray-800 text-yellow-400' : 'bg-black text-yellow-400'} transition-colors duration-300`}
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             
             {/* Botón idioma */}
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className={`px-2 py-1 rounded-lg font-bold ${theme === 'dark' ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400'} hover:opacity-90 text-sm`}
+              className={`px-3 py-2 rounded-lg font-bold ${theme === 'dark' ? 'bg-yellow-400 text-black' : 'bg-black text-yellow-400'} hover:opacity-90`}
               aria-label={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             >
               {language === "es" ? "EN" : "ES"}
@@ -760,7 +760,7 @@ export default function App() {
               className="p-2"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -770,9 +770,9 @@ export default function App() {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`md:hidden mt-3 pb-3 ${theme === 'dark' ? 'bg-black/90' : 'bg-white/90'} backdrop-blur-xl rounded-lg border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-4 py-3`}
+            className={`md:hidden mt-4 pb-4 ${theme === 'dark' ? 'bg-black/90' : 'bg-white/90'} backdrop-blur-xl rounded-lg border ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-6 py-4`}
           >
-            <nav className="flex flex-col space-y-3">
+            <nav className="flex flex-col space-y-4">
               <button 
                 onClick={() => scrollToSection(0)} 
                 className={`font-medium text-left py-2 ${active === 0 ? (theme === 'dark' ? 'text-yellow-400' : 'text-black') : (theme === 'dark' ? 'text-gray-300' : 'text-black/70')} transition-colors`}
@@ -802,7 +802,7 @@ export default function App() {
         )}
       </header>
 
-      <div className="pt-16">
+      <div className="pt-20">
         <AnimatePresence mode="wait">
           <CurrentComponent 
             key={sections[active].id} 
