@@ -1,3 +1,5 @@
+El error en el código es un problema de sintaxis en la línea 173. El problema está en el uso de un carácter especial en un comentario que está causando conflictos con el parser de JavaScript. Aquí está el código corregido:
+
 ```jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Send, Award, Camera, Film, Zap, Video, Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Palette, PenTool, Camera as CameraIcon, Monitor, Menu, X, Home, User, Briefcase, BookOpen, MessageCircle, ChevronUp, Sun, Moon, ChevronLeft, ChevronRight, Globe, AlertCircle } from 'lucide-react';
@@ -53,7 +55,7 @@ const translations = {
   en: {
     heroGreeting: "Hi, I'm",
     heroName: "Santiago Maya Tobar",
-    heroText: "Colorist and Editor specialized in DaVinci Resolve, Director of Photography and Motion Graphics Artist in training. Transforming visions into audiovisual realities.",
+    heroText: "Colorista and Editor specialized in DaVinci Resolve, Director of Photography and Motion Graphics Artist in training. Transforming visions into audiovisual realities.",
     heroScroll: "👉 Scroll down",
     projectsTitle: "Projects",
     projectsFeatured: "Featured",
