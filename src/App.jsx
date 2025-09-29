@@ -52,7 +52,7 @@ const translations = {
   en: {
     heroGreeting: "Hi, I'm",
     heroName: "Santiago Maya Tobar",
-    heroText: "Colorista and Editor specialized in DaVinci Resolve, Director of Photography and Motion Graphics Artist in training. Transforming visions into audiovisual realities.",
+    heroText: "Colorist and Editor specialized in DaVinci Resolve, Director of Photography and Motion Graphics Artist in training. Transforming visions into audiovisual realities.",
     heroScroll: "👉 Scroll down",
     projectsTitle: "Projects",
     projectsFeatured: "Featured",
@@ -412,10 +412,25 @@ const ContactSection = ({ language, theme = 'dark' }) => { // Recibe theme como 
     setSubmitMessage('');
 
     try {
-      // Simulación de envío de correo electrónico
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitMessage(language === 'es' ? t.successMessage : t.successMessage);
-      setFormData({ name: '', email: '', message: '' });
+      // Enviar datos a Formspree
+      const response = await fetch('https://formspree.io/f/xjkayzwe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitMessage(language === 'es' ? t.successMessage : t.successMessage);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Network response was not ok');
+      }
     } catch (error) {
       setSubmitMessage(language === 'es' ? t.errorMessage : t.errorMessage);
     } finally {
